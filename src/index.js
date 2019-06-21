@@ -8,6 +8,10 @@ import Column from './column';
 class App extends React.Component {
     state = initData;
 
+    onDragStart = () => {
+        // none for now
+    }
+
     onDragEnd = result => {
         const { destination, source, draggableId } = result;
         if (!destination) return;
@@ -38,6 +42,7 @@ class App extends React.Component {
         return (
             <DragDropContext
               onDragEnd={this.onDragEnd}
+              onDragStart={this.onDragStart}
             >
                 {this.state.columnOrder.map(columnId => {
                     const column = this.state.columns[columnId];
